@@ -2,5 +2,10 @@
 
 ## Setup
 
-1. install chromium playwrite...
-2. install mathjax -> not using (inline tex was not rendered)
+```sh
+$ uv sync
+$ uv run python -m playwright install chromium
+$ chmod +x nbconverter
+```
+
+## 
