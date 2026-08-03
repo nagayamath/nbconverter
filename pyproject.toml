@@ -10,3 +10,9 @@ dependencies = [
     "nbconvert[webpdf]>=7.17.1",
     "pandoc>=2.4",
 ]
+
+[dependency-groups]
+dev = [
+    "matplotlib>=3.11.1",
+    "numpy>=2.5.1",
+]
