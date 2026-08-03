@@ -1,0 +1,22 @@
+{% extends 'classic/index.html.j2' %}
+
+{% block html_head %}
+{{ super() }}
+<style>
+  @page {
+    size: A4;
+    margin: 12mm 6mm 12mm -6mm;
+  }
+
+  body {
+    font-size: 14px;
+    line-height: 1.35;
+  }
+
+  pre,
+  code {
+    font-size: 13px;
+    line-height: 1.1;
+  }
+</style>
+{% endblock html_head %}

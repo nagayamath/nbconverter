@@ -1,0 +1,114 @@
+{% extends 'lab/index.html.j2' %}
+
+{% block html_head %}
+    {{ super() }}
+    <style>
+        @page {
+            size: A4;
+            margin: 12mm 6mm 12mm 6mm;
+            /* 上右下左 */
+        }
+
+        :root {
+            --jp-content-font-size1: 14px;
+            --jp-code-font-size: 12px;
+            --jp-content-line-height: 1.3;
+            --jp-code-line-height: 1.2;
+        }
+
+        .jp-RenderedHTMLCommon {
+            font-size: var(--jp-content-font-size1) !important;
+            line-height: var(--jp-content-line-height) !important;
+            padding-right: 0 !important;
+        }
+
+        .jp-InputPrompt,
+        .jp-OutputPrompt,
+        .jp-InputArea-prompt,
+        .jp-OutputArea-prompt {
+            display: none !important;
+            width: 0 !important;
+            min-width: 0 !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+
+        /* 入力セルのコード */
+        .jp-InputArea pre,
+        .jp-InputArea code {
+            font-size: var(--jp-code-font-size) !important;
+            line-height: var(--jp-code-line-height) !important;
+        }
+
+        /* print などのテキスト出力 */
+        .jp-OutputArea pre,
+        .jp-RenderedText pre {
+            font-size: var(--jp-code-font-size) !important;
+            line-height: var(--jp-code-line-height) !important;
+        }
+
+        /* Markdown 本文中のインラインコード */
+        .jp-RenderedHTMLCommon p code,
+        .jp-RenderedHTMLCommon li code,
+        .jp-RenderedHTMLCommon td code {
+            font-size: var(--jp-code-font-size) !important;
+            line-height: var(--jp-code-line-height) !important;
+        }
+
+        /* Markdown のコードブロック */
+        .jp-RenderedHTMLCommon pre,
+        .jp-RenderedHTMLCommon pre code {
+            font-size: var(--jp-code-font-size) !important;
+            line-height: var(--jp-code-line-height) !important;
+        }
+
+        /* 見出し中のインラインコードは，見出しの大きさに合わせる */
+        .jp-RenderedHTMLCommon h1 code,
+        .jp-RenderedHTMLCommon h2 code,
+        .jp-RenderedHTMLCommon h3 code,
+        .jp-RenderedHTMLCommon h4 code,
+        .jp-RenderedHTMLCommon h5 code,
+        .jp-RenderedHTMLCommon h6 code {
+            font-size: inherit !important;
+            line-height: inherit !important;
+        }
+
+        /* Markdown の引用ブロック */
+        .jp-RenderedHTMLCommon blockquote {
+            margin-left: 0.5em !important;
+            margin-right: 0 !important;
+            padding-left: 1.0em !important;
+            padding-right: 0 !important;
+            border-left: 3px solid #c8c8c8 !important;
+            color: inherit !important;
+        }
+
+        .jp-RenderedImage img,
+        .jp-OutputArea-output img,
+        .jp-OutputArea-output svg {
+            display: block !important;
+            width: auto !important;
+            max-width: 90% !important;
+            height: auto !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+    </style>
+{% endblock html_head %}
+{# {% block output_area_prompt %}
+  <div class="jp-OutputPrompt jp-OutputArea-prompt">&nbsp;</div>
+{% endblock output_area_prompt %} #}
+
+{# {% block output_area_prompt %}
+  <div class="jp-OutputPrompt jp-OutputArea-prompt">
+    {%- if output.output_type == 'execute_result' -%}
+      {%- if cell.execution_count is defined -%}
+        Out[{{ cell.execution_count|replace(None, "&nbsp;") }}]:
+      {%- else -%}
+        Out[&nbsp;]:
+      {%- endif -%}
+    {%- else -%}
+      &nbsp;
+    {%- endif -%}
+  </div>
+{% endblock output_area_prompt %} #}
